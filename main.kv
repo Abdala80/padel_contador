@@ -1,0 +1,34 @@
+<TeamColumn>:
+    orientation: 'vertical'
+
+    canvas.before:
+        Color:
+            rgba: 0.2, 0.2, 0.2, 1  # Cambia los valores RGB y alpha según el color deseado
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: root.team_name
+
+    Label:
+        text: str(root.points)
+        font_size: 80
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 1.2
+
+        Button:
+            text: '+'
+            font_size: 40
+            on_press: root.increment_points(self)
+
+        Button:
+            text: '-'
+            font_size: 40
+            on_press: root.decrement_points(self)
+
+    Label:
+        text: f'Juegos: {root.games} | Sets: {root.sets}'
+        font_size: 40
